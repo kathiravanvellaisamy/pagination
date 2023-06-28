@@ -55,54 +55,56 @@ function App() {
           </div>
         )}
 
-        <div className="flex flex-col  items-center justify-center mx-auto py-5">
-          {products.length > 0 && (
-            <nav>
-              <ul className="inline-flex -space-x-px">
-                <li>
-                  <span
-                    onClick={() => selectPageHandler(page - 1)}
-                    className={`px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-slate-500 hover:text-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer ${
-                      page > 1
-                        ? " "
-                        : "cursor-not-allowed hover:bg-gray-50 hover:text-red-200"
-                    }`}
-                  >
-                    Previous
-                  </span>
-                </li>
+        <div className="px-1 mx-auto w-full md:w-3/4">
+          <div className="flex flex-col  items-center justify-center  py-5 overflow-hidden">
+            {products.length > 0 && (
+              <nav className="px-10">
+                <ul className="inline-flex -space-x-px ">
+                  <li>
+                    <span
+                      onClick={() => selectPageHandler(page - 1)}
+                      className={`px-2 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-slate-500 hover:text-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer ${
+                        page > 1
+                          ? " "
+                          : "cursor-not-allowed hover:bg-gray-50 hover:text-red-200"
+                      }`}
+                    >
+                      Pre
+                    </span>
+                  </li>
 
-                <li>
-                  {[...Array(products.length / 10)].map((_, i) => {
-                    return (
-                      <span
-                        onClick={() => selectPageHandler(i + 1)}
-                        className={` px-3 py-2 leading-tight cursor-pointer text-gray-500 bg-white border border-gray-300 hover:bg-slate-500 hover:text-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white  ${
-                          page === i + 1
-                            ? "bg-slate-500 border-1 border-slate-500 text-white"
-                            : ""
-                        }`}
-                      >
-                        {i + 1}
-                      </span>
-                    );
-                  })}
-                </li>
-                <li>
-                  <span
-                    onClick={() => selectPageHandler(page + 1)}
-                    className={`px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-slate-500 hover:text-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer ${
-                      page > products.length / 10
-                        ? " "
-                        : "cursor-not-allowed hover:bg-gray-50 hover:text-red-200"
-                    }`}
-                  >
-                    Next
-                  </span>
-                </li>
-              </ul>
-            </nav>
-          )}
+                  <li>
+                    {[...Array(products.length / 10)].map((_, i) => {
+                      return (
+                        <span
+                          onClick={() => selectPageHandler(i + 1)}
+                          className={` px-2 py-2 leading-tight cursor-pointer text-gray-500 bg-white border border-gray-300 hover:bg-slate-500 hover:text-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white  ${
+                            page === i + 1
+                              ? "bg-slate-500 border-1 border-slate-500 text-white"
+                              : ""
+                          }`}
+                        >
+                          {i + 1}
+                        </span>
+                      );
+                    })}
+                  </li>
+                  <li>
+                    <span
+                      onClick={() => selectPageHandler(page + 1)}
+                      className={`px-2 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-slate-500 hover:text-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer ${
+                        page < products.length / 10
+                          ? " "
+                          : "cursor-not-allowed hover:bg-gray-50 hover:text-red-200"
+                      }`}
+                    >
+                      Next
+                    </span>
+                  </li>
+                </ul>
+              </nav>
+            )}
+          </div>
         </div>
       </div>
     </>
