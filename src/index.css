@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.product__img {
+  height: 240px;
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
